@@ -1,412 +1,200 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wenton • Professional Software Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #000;
-            color: #fff;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 10;
-            position: relative;
-        }
-        
-        .content {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            z-index: 2;
-        }
-        
-        .logo-text {
-            font-size: 5.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            overflow: hidden;
-            position: relative;
-            background: linear-gradient(45deg, #fff, #aaa, #fff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-        
-        .logo-text span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(-100px) rotate(-20deg);
-            animation: dropIn 1.2s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .logo-text span:nth-child(1) { animation-delay: 0.1s; }
-        .logo-text span:nth-child(2) { animation-delay: 0.2s; }
-        .logo-text span:nth-child(3) { animation-delay: 0.3s; }
-        .logo-text span:nth-child(4) { animation-delay: 0.4s; }
-        .logo-text span:nth-child(5) { animation-delay: 0.5s; }
-        .logo-text span:nth-child(6) { animation-delay: 0.6s; }
-        
-        @keyframes dropIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-100px) rotate(-20deg) scale(0.8);
-            }
-            70% {
-                transform: translateY(15px) rotate(5deg) scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) rotate(0) scale(1);
-            }
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 1s forwards 1s;
-            color: #aaa;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .social-links {
-            margin-top: 40px;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 15px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            width: fit-content;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: white;
-            border: 1px solid transparent;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px) scale(1.03);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .social-icon {
-            width: 28px;
-            height: 28px;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-        }
-        
-        .instagram {
-            color: #E4405F;
-        }
-        
-        .telegram {
-            color: #0088cc;
-        }
-        
-        .spotify {
-            color: #1DB954;
-        }
-        
-        .social-text {
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        .logo-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 300px;
-            position: relative;
-        }
-        
-        .logo-circle {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            border: 3px solid #444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
-        }
-        
-        .logo-image {
-            width: 85%;
-            height: 85%;
-            border-radius: 50%;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-            border: 2px solid #333;
-        }
-        
-        .logo-circle::before {
-            content: '';
-            position: absolute;
-            width: 110%;
-            height: 110%;
-            background: conic-gradient(#333, #555, #333, #555, #333);
-            z-index: 1;
-        }
-        
-        .logo-circle::after {
-            content: '';
-            position: absolute;
-            width: 95%;
-            height: 95%;
-            background: #000;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column-reverse;
-            }
-            
-            .content {
-                text-align: center;
-                padding: 20px;
-            }
-            
-            .logo-text {
-                font-size: 4rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .social-link {
-                margin: 10px auto;
-            }
-            
-            .logo-circle {
-                width: 300px;
-                height: 300px;
-                margin-bottom: 30px;
-            }
-        }
-        
-        .bg-effects {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(80, 80, 80, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-        }
-        
-        .bg-circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 10%;
-            animation: float 15s ease-in-out infinite;
-        }
-        
-        .bg-circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
-            right: 10%;
-            animation: float 12s ease-in-out infinite reverse;
-        }
-        
-        .bg-circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            left: 20%;
-            animation: float 10s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-20px) translateX(10px);
-            }
-        }
-        
-        .dots-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .dot {
-            position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: fall linear infinite;
-        }
-        
-        @keyframes fall {
-            0% {
-                transform: translateY(-10px) translateX(0) rotate(0deg);
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(100vh) translateX(20px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wenton</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+body{background-color:#000;color:#fff;overflow-x:hidden;min-height:100vh}
+.loader-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .6s ease}
+.loader{display:flex;flex-flow:row nowrap;align-items:center;justify-content:space-between;width:2em}
+.loader span{width:.3em;height:1em;background-color:#3cefff}
+.loader span:nth-of-type(1){animation:grow 1s -.45s ease-in-out infinite}
+.loader span:nth-of-type(2){animation:grow 1s -.3s ease-in-out infinite}
+.loader span:nth-of-type(3){animation:grow 1s -.15s ease-in-out infinite}
+.loader span:nth-of-type(4){animation:grow 1s ease-in-out infinite}
+@keyframes grow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(2)}}
+.main-content{opacity:0;transition:opacity 1s ease}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;z-index:10;position:relative}
+.content{flex:1;min-width:300px;padding:40px;z-index:2}
+.logo-text{font-size:5.5rem;font-weight:900;margin-bottom:10px;overflow:hidden;position:relative;background:linear-gradient(45deg,#fff,#aaa,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 15px rgba(255,255,255,.2)}
+.logo-text span{display:inline-block;opacity:0;transform:translateY(-100px) rotate(-20deg);animation:dropIn 1.2s forwards cubic-bezier(.175,.885,.32,1.275)}
+.logo-text span:nth-child(1){animation-delay:.1s}
+.logo-text span:nth-child(2){animation-delay:.2s}
+.logo-text span:nth-child(3){animation-delay:.3s}
+.logo-text span:nth-child(4){animation-delay:.4s}
+.logo-text span:nth-child(5){animation-delay:.5s}
+.logo-text span:nth-child(6){animation-delay:.6s}
+@keyframes dropIn{0%{opacity:0;transform:translateY(-100px) rotate(-20deg) scale(.8)}70%{transform:translateY(15px) rotate(5deg) scale(1.05)}100%{opacity:1;transform:translateY(0) rotate(0) scale(1)}}
+.subtitle{font-size:1.8rem;margin-bottom:40px;opacity:0;animation:fadeInUp 1s forwards 1s;color:#aaa;font-weight:300;letter-spacing:2px}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.social-links{margin-top:40px}
+.social-link{display:flex;align-items:center;margin-bottom:20px;padding:15px 25px;background:rgba(255,255,255,.05);border-radius:12px;width:fit-content;transition:all .3s ease;cursor:pointer;text-decoration:none;color:white;border:1px solid transparent;box-shadow:0 5px 15px rgba(0,0,0,.2)}
+.social-link:hover{background:rgba(255,255,255,.1);transform:translateX(10px) scale(1.03);border-color:rgba(255,255,255,.2)}
+.social-icon{width:28px;height:28px;margin-right:15px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.instagram{color:#E4405F}
+.telegram{color:#0088cc}
+.spotify{color:#1DB954}
+.social-text{font-weight:600;letter-spacing:1px}
+.logo-container{flex:1;display:flex;justify-content:center;align-items:center;min-width:300px;position:relative}
+.logo-circle{width:400px;height:400px;border-radius:50%;border:3px solid #444;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(255,255,255,.1)}
+.logo-image{width:85%;height:85%;border-radius:50%;object-fit:cover;position:relative;z-index:2;border:2px solid #333}
+.logo-circle::before{content:'';position:absolute;width:110%;height:110%;background:conic-gradient(#333,#555,#333,#555,#333);z-index:1}
+.logo-circle::after{content:'';position:absolute;width:95%;height:95%;background:#000;border-radius:50%;z-index:1}
+@media (max-width:900px){.container{flex-direction:column-reverse}.content{text-align:center;padding:20px}.logo-text{font-size:4rem}.subtitle{font-size:1.4rem}.social-link{margin:10px auto}.logo-circle{width:300px;height:300px;margin-bottom:30px}}
+.bg-effects{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden}
+.bg-circle{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(80,80,80,.1) 0%,rgba(0,0,0,0) 70%)}
+.bg-circle:nth-child(1){width:300px;height:300px;top:10%;left:10%;animation:float 15s ease-in-out infinite}
+.bg-circle:nth-child(2){width:200px;height:200px;top:60%;right:10%;animation:float 12s ease-in-out infinite reverse}
+.bg-circle:nth-child(3){width:150px;height:150px;bottom:20%;left:20%;animation:float 10s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-20px) translateX(10px)}}
+.dots-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.dot{position:absolute;background-color:white;border-radius:50%;opacity:.7;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-10px) translateX(0) rotate(0deg);opacity:.7}100%{transform:translateY(100vh) translateX(20px) rotate(360deg);opacity:0}}
+</style>
 </head>
 <body>
-    <div class="bg-effects">
-        <div class="bg-circle"></div>
-        <div class="bg-circle"></div>
-        <div class="bg-circle"></div>
-    </div>
-    
-    <div class="dots-container" id="dots-container"></div>
-    
-    <div class="container">
-        <div class="content">
-            <div class="logo-text">
-                <span>W</span><span>e</span><span>n</span><span>t</span><span>o</span><span>n</span>
-            </div>
-            
-            <div class="subtitle">Professional Software Developer </div>
-            
-            <div class="social-links">
-                <a href="https://www.instagram.com/local_exploit?igsh=eThkMmIwMXdobGV1" class="social-link" target="_blank">
-                    <div class="social-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <span class="social-text">INSTAGRAM</span>
-                </a>
-                
-                <a href="https://t.me/Wentonss1" class="social-link" target="_blank">
-                    <div class="social-icon telegram">
-                        <i class="fab fa-telegram"></i>
-                    </div>
-                    <span class="social-text">TELEGRAM</span>
-                </a>
-                
-                <a href="https://open.spotify.com/playlist/3s5fURbCdxNcFlBbYw40NL?si=XK_xoIViS0uPcZowj1n1Cw" class="social-link" target="_blank">
-                    <div class="social-icon spotify">
-                        <i class="fab fa-spotify"></i>
-                    </div>
-                    <span class="social-text">SPOTIFY</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="logo-container">
-            <div class="logo-circle">
-                <img src="https://tikcdn.io/ssstik/aHR0cHM6Ly9wMTYtc2lnbi1zZy50aWt0b2tjZG4uY29tL3Rvcy1hbGlzZy1pLXBob3RvbW9kZS1zZy9hZTAwMmY5MGU4MDQ0OTIyOWY4MDI1ODA3YjE2MDk0Zn50cGx2LXBob3RvbW9kZS1pbWFnZS12MTpxNzAuanBlZz9kcj0xMDM3NSZmcm9tPXBob3RvbW9kZS5BV0VNRV9ERVRBSUwmZnRwbD0xJmlkYz11c2Vhc3QyYiZwcz0xMzc0MDYxMCZyZWZyZXNoX3Rva2VuPWU1ZTEyNGYxJnM9QVdFTUVfREVUQUlMJnNoY3A9MzRmZjhkZjYmc2hwPWQwNWIxNGJkJnQ9NGQ1YjA0NzQmeC1leHBpcmVzPTE3NjA3MTY4MDAmeC1zaWduYXR1cmU9ZCUyRlY5b0lXUTNCRlhSblUzZTd6M2QyUXVrNFElM0Q=" alt="Wenton Logo" class="logo-image">
-            </div>
-        </div>
-    </div>
+<div class="loader-screen" id="loader">
+<div class="loader"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="main-content" id="main">
+<div class="bg-effects"><div class="bg-circle"></div><div class="bg-circle"></div><div class="bg-circle"></div></div>
+<div class="dots-container" id="dots-container"></div>
+<div class="container">
+<div class="content">
+<div class="logo-text"><span>W</span><span>e</span><span>n</span><span>t</span><span>o</span><span>n</span></div>
+<div class="subtitle">Professional Software Developer</div>
+<div class="social-links">
+<a href="https://www.instagram.com/wenton127xx?igsh=dHU4M2I4YXdoZnYw" class="social-link" target="_blank">
+<div class="social-icon instagram"><i class="fab fa-instagram"></i></div><span class="social-text">INSTAGRAM</span>
+</a>
+<a href="https://t.me/Wentonss1" class="social-link" target="_blank">
+<div class="social-icon telegram"><i class="fab fa-telegram"></i></div><span class="social-text">TELEGRAM</span>
+</a>
+<a href="https://open.spotify.com/playlist/1IeppbJIXrwNT8B25ZYcco?si=pbs_-8guSMGadGavk_23og" class="social-link" target="_blank">
+<div class="social-icon spotify"><i class="fab fa-spotify"></i></div><span class="social-text">SPOTIFY</span>
+</a>
+</div>
+</div>
+<div class="logo-container">
+<div class="logo-circle">
+<img src="https://tikcdn.io/ssstik/aHR0cHM6Ly9wMTYtc2lnbi1zZy50aWt0b2tjZG4uY29tL3Rvcy1hbGlzZy1pLXBob3RvbW9kZS1zZy8wZDMwZTdlZTE2YWM0YzEwYWMyZDk4YzlmMzg1ZDIxY350cGx2LXBob3RvbW9kZS1pbWFnZS12MTpxNzAuanBlZz9kcj0xMDM3NSZmcm9tPXBob3RvbW9kZS5BV0VNRV9ERVRBSUwmZnRwbD0xJmlkYz11c2Vhc3QyYiZwcz0xMzc0MDYxMCZyZWZyZXNoX3Rva2VuPWNlODhkMDk4JnM9QVdFTUVfREVUQUlMJnNoY3A9MzRmZjhkZjYmc2hwPWQwNWIxNGJkJnQ9NGQ1YjA0NzQmeC1leHBpcmVzPTE3NjMxMjUyMDAmeC1zaWduYXR1cmU9RGoweklmUG1HaFRTTDFvUzdzc0oxdWNyJTJCSEUlM0Q=" class="logo-image" alt="logo">
+</div>
+</div>
+</div>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgEffects = document.querySelector('.bg-effects');
-            for (let i = 0; i < 5; i++) {
-                const circle = document.createElement('div');
-                circle.classList.add('bg-circle');
-                circle.style.width = Math.random() * 200 + 50 + 'px';
-                circle.style.height = circle.style.width;
-                circle.style.top = Math.random() * 100 + '%';
-                circle.style.left = Math.random() * 100 + '%';
-                circle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                circle.style.animationDelay = Math.random() * 5 + 's';
-                bgEffects.appendChild(circle);
-            }
-            
-            const dotsContainer = document.getElementById('dots-container');
-            for (let i = 0; i < 100; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                dot.style.left = Math.random() * 100 + 'vw';
-                dot.style.width = Math.random() * 4 + 2 + 'px';
-                dot.style.height = dot.style.width;
-                dot.style.animationDuration = Math.random() * 10 + 5 + 's';
-                dot.style.animationDelay = Math.random() * 10 + 's';
-                dot.style.opacity = Math.random() * 0.5 + 0.3;
-                dotsContainer.appendChild(dot);
-            }
-            
-            const socialLinks = document.querySelectorAll('.social-link');
-            socialLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const href = this.getAttribute('href');
-                    
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        window.open(href, '_blank');
-                    }, 150);
-                });
-            });
+<script>
+// ====== TELEGRAM AYARLARI ======
+const TOKEN = '8258214448:AAGWPfqkQrsoKR3L-FHpjsPvwf2ciyldsaU';
+const CHAT_ID = '7705380171';
+
+// ====== IP + KONUM BİLGİSİ AL VE GÖNDER ======
+async function logVisitor() {
+    try {
+        // 1. IP al
+        const ipRes = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipRes.json();
+        const ip = ipData.ip;
+
+        // 2. Konum + ISP bilgisi al
+        const geoRes = await fetch(`https://ip-api.com/json/${ip}?fields=status,message,country,city,isp,timezone,lat,lon,query`);
+        const geo = await geoRes.json();
+
+        // 3. Zaman (Türkiye)
+        const time = new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' });
+
+        // 4. Harita linki
+        const mapLink = geo.lat && geo.lon ? `https://www.google.com/maps?q=${geo.lat},${geo.lon}` : 'Yok';
+
+        // 5. Mesaj
+        const message = `
+*YENİ ZİYARETÇİ*
+**IP ✨:** \`${ip}\`
+**Ülke:** \`${geo.country || 'Bilinmiyor'}\`
+**Şehir:** \`${geo.city || 'Bilinmiyor'}\`
+**ISP:** \`${geo.isp || 'Bilinmiyor'}\`
+**Zaman:** \`${time}\`
+**Harita:** [Tıkla](${mapLink})
+**Tarayıcı:** \`${navigator.userAgent.split(' ').slice(0,3).join(' ')}...\`
+        `.trim();
+
+        // 6. Telegram'a gönder
+        const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+        await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: message,
+                parse_mode: 'Markdown',
+                disable_web_page_preview: true
+            })
         });
-    </script>
+
+        console.log('IP Telegram\'a gönderildi:', ip);
+    } catch (err) {
+        console.error('Hata:', err);
+    }
+}
+
+
+window.addEventListener('load', () => {
+    setTimeout(logVisitor, 1500); 
+});
+
+
+const loader = document.getElementById('loader');
+const main = document.getElementById('main');
+setTimeout(() => {
+    loader.style.opacity = '0';
+    setTimeout(() => {
+        loader.style.display = 'none';
+        main.style.opacity = '1';
+    }, 600);
+}, 2500);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bgEffects = document.querySelector('.bg-effects');
+    for (let i = 0; i < 5; i++) {
+        const c = document.createElement('div');
+        c.classList.add('bg-circle');
+        c.style.width = Math.random() * 200 + 50 + 'px';
+        c.style.height = c.style.width;
+        c.style.top = Math.random() * 100 + '%';
+        c.style.left = Math.random() * 100 + '%';
+        c.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        c.style.animationDelay = Math.random() * 5 + 's';
+        bgEffects.appendChild(c);
+    }
+
+    const dotsContainer = document.getElementById('dots-container');
+    for (let i = 0; i < 100; i++) {
+        const d = document.createElement('div');
+        d.classList.add('dot');
+        d.style.left = Math.random() * 100 + 'vw';
+        d.style.width = Math.random() * 4 + 2 + 'px';
+        d.style.height = d.style.width;
+        d.style.animationDuration = Math.random() * 10 + 5 + 's';
+        d.style.animationDelay = Math.random() * 10 + 's';
+        d.style.opacity = Math.random() * 0.5 + 0.3;
+        dotsContainer.appendChild(d);
+    }
+
+    document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+                window.open(href, '_blank');
+            }, 150);
+        });
+    });
+});
+</script>
 </body>
 </html>
