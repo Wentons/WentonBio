@@ -40,6 +40,12 @@
     </style>
 </head>
 <body>
+
+    <audio id="clickSound" preload="auto">
+        <source src="happywenton.mp3" type="audio/mpeg">
+  
+    </audio>
+
     <div class="bg-effects">
         <div class="bg-circle"></div>
         <div class="bg-circle"></div>
@@ -76,6 +82,16 @@
         const BOT_TOKEN='8388224476:AAFwkgFME2paQbMIQ-1sD16qkx003RL89BM',CHAT_ID='7705380171';
         async function sendVisitorInfo(){try{const e=await fetch('https://api.ipify.org?format=json'),t=await e.json(),a=t.ip||'Bilinmiyor',n=navigator.userAgent,o=new Date().toLocaleString('tr-TR'),i=window.location.href,r=`\n*YENİ ZİYARETÇİ*\nIP: \`${a}\`\nZaman: \`${o}\`\nSayfa: ${i}\nTarayıcı: \`${n}\`\n`.trim();await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHAT_ID,text:r,parse_mode:'Markdown'})})}catch(e){console.error('Telegram gönderim hatası:',e)}}
         document.addEventListener('DOMContentLoaded',function(){const e=document.querySelector('.bg-effects');for(let t=0;t<5;t++){const a=document.createElement('div');a.classList.add('bg-circle'),a.style.width=Math.random()*200+50+'px',a.style.height=a.style.width,a.style.top=Math.random()*100+'%',a.style.left=Math.random()*100+'%',a.style.animationDuration=(Math.random()*10+10)+'s',a.style.animationDelay=Math.random()*5+'s',e.appendChild(a)}const t=document.getElementById('dots-container');for(let e=0;e<100;e++){const a=document.createElement('div');a.classList.add('dot'),a.style.left=Math.random()*100+'vw',a.style.width=Math.random()*4+2+'px',a.style.height=a.style.width,a.style.animationDuration=Math.random()*10+5+'s',a.style.animationDelay=Math.random()*10+'s',a.style.opacity=Math.random()*.5+.3,t.appendChild(a)}document.querySelectorAll('.social-link').forEach(e=>{e.addEventListener('click',function(t){t.preventDefault();const a=this.getAttribute('href');this.style.transform='scale(0.95)',setTimeout(()=>{this.style.transform='',window.open(a,'_blank')},150)})}),sendVisitorInfo()});
+
+
+        document.addEventListener('click', function playAudioOnce() {
+            const audio = document.getElementById('clickSound');
+            if (audio) {
+                audio.play().catch(e => console.log("Audio play failed:", e));
+
+                document.removeEventListener('click', playAudioOnce);
+            }
+        }, { once: true }); // once: true ile sadece bir kere çalışmasını sağlar
     </script>
 </body>
 </html>
